@@ -1,41 +1,35 @@
 <?php 
-
 function validateUser($sqli)
 {
   $error = '';
   $id = 0;
 
-
    // Fetch data
-  $user = mysqli_real_escape_string($sqli, $_POST['usernameInput']);
-
+  $user = mysqli_real_escape_string($sqli, $_POST['emailInput']);
 
   // Two-fold password encryption hashing algorithm (hashing, hashed salt)
   $tempPass = mysqli_real_escape_string($sqli, $_POST['passwordInput']);
-  $salt = '1k7R!@bRUS}DW%Zy-tj{.o70WVm'.$user.'FbjRQ#s+[@-~,!SaJ[`%51^$E{zZ>S}=?`Gq';
-  $pass = md5($tempPass.$salt);
-  $pass = sha1($pass);
+  $salt = $email . 'FbjRQ#s+[@-~,!SaJ[`%51^$E{zZ>S}=?`Gq';
+  $pass = hash('sha512', $salt.$tempPass, false);
 
   // Check that required fields from form are filled
  if (isset($user, $tempPass))
  {
-
     // QUERY FROM DATABASE
-    $query = mysqli_query($sqli, "SELECT * FROM users WHERE handle = '".$user."' LIMIT 1");
+    $query = mysqli_query($sqli, "SELECT * FROM users WHERE email = '".$email."' LIMIT 1");
     $checkuser = mysqli_num_rows($query);
 
-
-     // Check if username is matched with existing row
+     // Check if email is matched with existing row
     if($checkuser < 1)
     {  
-      $error = "Username doesn't exist in our database!";
+      $error = "Email doesn't exist in our database!";
       $id = -1;
     }
-
 
      // Fetching user password hash in database for comparison.
     while ($row = mysqli_fetch_array($query, MYSQLI_BOTH))
     {
+      // NB remove strict coupling of password to row[2]
       $checkpass = $row[2];
 
       // Compare password hashes.
@@ -44,15 +38,14 @@ function validateUser($sqli)
           $new = TRUE;
           $user = NULL;
 
-
+          /* Not Currently in Use
           // QUERY FROM DATABASE
-          $query2 = mysqli_query($sqli, "SELECT * FROM hero WHERE id = '".$row[0]."'");
+          $query2 = mysqli_query($sqli, "SELECT * FROM players WHERE email = '".$row[0]."'");
           $checknew = mysqli_num_rows($query2);
 
-           // Check if username is matched with existing row
+           // Check if email is matched with existing row
           if($checknew == 1)
           {  
-
             while ($row2 = mysqli_fetch_array($query2, MYSQLI_BOTH))
             {
               $new = FALSE;
@@ -68,8 +61,8 @@ function validateUser($sqli)
           }
           else 
           {
-          }
-          $userArray = array('id' => $row[0], 'name' => $row[1], 'new' => $new, 'user' => $user, 'inventory' => $inventory);
+          }*/
+          $userArray = array('id' => $row[0], 'email' => $row[1], 'new' => $new, 'user' => $user);
       } else
       {
         $error = "Passwords do not match";
@@ -92,7 +85,6 @@ function sessionSet($array)
   {
     $_SESSION['name'] = $array['name'];
     $_SESSION['user'] = serialize($array['user']);
-    $_SESSION['inventory'] = serialize($array['inventory']);
   }
 
   //Calculate 10 days in the future
@@ -103,27 +95,26 @@ function sessionSet($array)
   //User info
   $salt1 = '239h9vn9U#@)jv0*@ng)*3j(1.t42n0)';
   $salt2 = '2fj938vw-J(#)Ngf;@()m//2j';
-  $userInfo = sha1(md5($salt1.$array['id']).$salt2);
+  $userInfo = hash('sha512', $salt1.$array['id']).$salt2, false);
 
   setcookie("user", $userInfo, $inTenDays);
-
 }
 
-// Main
-if (isset($_POST['usernameInput'], $_POST['passwordInput']))
-{
 
-  require "hero.php";
+
+// Main
+if (isset($_POST['emailInput'], $_POST['passwordInput']))
+{
   require 'sql.php';
 
   // Starts SQL connection
   $sql = getConnected();
   $userArray = validateUser($sql);
 
+
+
   if ( $userArray['id'] > 0 ) {
-    
-
-
+ 
     sessionSet($userArray);
 
     echo json_encode($userArray);

@@ -23,11 +23,10 @@ hr {
 	padding-right: 2px;
 }
 
-#topbar {
-	padding: 0;
+
+header.row{
 	margin-top: 0;
 }
-
 #mainStory {
 	background-color: #EEEEF5;
 }
@@ -36,6 +35,7 @@ hr {
 	background-color: #262626;
 	min-height: 200px;
     background-image: url(../images/inn.jpg);
+    background-repeat: no-repeat;
     margin-left: auto;
 }
 
@@ -67,7 +67,30 @@ hr {
 }
 
 #loginDiv {
-	margin: 10px;
+	padding-bottom: 20px;
+}
+
+#loginForm, #signupForm {
+	margin: 20px 20px 0;
+}
+
+label {
+	font-weight: 300;
+	margin-bottom: 10px;
+	letter-spacing: .06em;
+}
+
+a#register {
+	margin: 20px 20px 40px;
+}
+
+header h3 {
+	margin-left: 20px;
+}
+
+#logout {
+	float: right;
+	color: #CCF;
 }
 
 #setupDiv {
@@ -107,15 +130,9 @@ hr {
 a:link {
 	text-decoration: none;
 	font-weight: 500;
-	color: #EEEEF5;
 }
 
 a:hover {
-	color: #CEDAF3;
-}
-
-.header {
-
 }
 
 .border {

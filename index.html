@@ -1,9 +1,8 @@
 <!--
-Content Creation, Design, and Development
 Stephen Burgess
-stephen.burgess@purchase.edu
-The Astre Blade
-2014
+stephenburgess8@gmail.edu
+PHP Sign-up/Login
+2015
 -->
 
 <!DOCTYPE html> <!-- HTML5 -->
@@ -18,8 +17,8 @@ The Astre Blade
 	<!-- Meta Data
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Astrablade (interactive fiction)</title>
-	<meta name="description" content="An interactive fiction choose-your-own-adventure story.">
+	<title>PHP Register / Login</title>
+	<meta name="description" content="Basic code to provide register and login functionality with PHP, JavaScript, and MySql">
 	<meta name="author" content="Stephen Burgess">
 
 	<!-- Mobile Specific Meta
@@ -28,7 +27,6 @@ The Astre Blade
 
 	<!-- CSS
   ================================================== -->
-  	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/layout.css">
@@ -48,33 +46,27 @@ The Astre Blade
 
 	<!-- jQuery
 	================================================== -->
-
-
-	  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		
 	  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-	<script src="js/main.js"></script>
+		<script src="js/main.js"></script>
 </head>
 
 <body>
-
 	<!-- Primary Page Layout
 	================================================== -->
-
 	<div class="container">
-
-		<header class="row" id="topbar" >
+		<header>
 			<hgroup>
-				<div class="eight columns alpha omega" id="logo">
-					<h3>The Astre Blade</h3>
+				<div class="eight columns">
+					<h3>PHP Register and Login</h3>
 				</div>
-				<div class="eight columns alpha omega" id="version">
-					
-					<h5>Version 0.4</h5>
+				<div class="eight columns" id="version">
+					<h5>Version 0.2</h5>
 				</div>
 			</hgroup>
 
-			<a href="logout.php" id="logout" style="display:none; float:right; color: #CCF;">Log Out</a>
+			<a href="logout.php" id="logout" style="display:none;">Log Out</a>
 		</header>
 
 		<hr />
@@ -84,12 +76,13 @@ The Astre Blade
 				<a href="#"></a>
 			</div>
 
-			<!-- class="eight columns alpha"-->
+			<!-- top aside"-->
 			<aside class="four columns border" id="cardinals">
-					Location: <span id="location">Inn Room</span>
+					Location: <span id="location">A stranger in the wild unknown</span>
 			</aside>
 			<br class="clear" />
 			
+
 			<article class="story" id="state00" title='Inn Room'>
 				<p>You wake up in a small room in an inn. The morning light coming through the window just reached your pillow. The fire went out during the night and now the room is cold. <a class="move" id="s000" href="#">Examine the dresser.</a><br /><a class="move" id="s001" href="#">Examine the bedside table.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
 			</article>
@@ -163,12 +156,12 @@ The Astre Blade
 
 			<!-- Login Form -->
 
-			<div class="eleven columns" id="loginDiv">
+			<div class="twelve columns alpha omega" id="loginDiv">
 				<form name="login" id="loginForm" action="login.php" method="post">
-					<label for="usernameInput">Username: </label>
-					<input type="text" name="usernameInput" id="usernameInput" placeholder="Username" autofocus required>
+					<label for="emailInput">Email: </label>
+					<input type="email" name="emailInput" id="emailInput" placeholder="Jane@doefoundation.org" autofocus required>
 					<label for="passwordInput">Password: </label>
-					<input type="password" name="passwordInput" placeholder="Password" required>
+					<input type="password" name="passwordInput" placeholder="Password!1234" required>
 					<input type="submit" name="loginSubmit" value="Log In">
 				</form>
 				<a href="register.html" id="register">Register</a>

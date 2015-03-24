@@ -1,27 +1,28 @@
-	function accordian(accordianDiv) {
-		    $(accordianDiv).accordion({
-		        collapsible: true,
-		        heightStyle: "content"
-		    });
-	}
+/*
+function accordian(accordianDiv) {
+    $(accordianDiv).accordion({
+        collapsible: true,
+        heightStyle: "content"
+    });
+}
+/*
+function healthBar(healthBarDiv) {
 
-		function healthBar(healthBarDiv) {
+    var hBar = $(healthBarDiv);
 
-		    var hBar = $(healthBarDiv);
+    $(hBar).progressbar({
+        value: (1 / 12) * 100
+    });
 
-		    $(hBar).progressbar({
-		        value: (1 / 12) * 100
-		    });
+    $(hBar).height(20);
 
-		    $(hBar).height(20);
+    var healthBarValue = hBar.find(".ui-progressbar-value");
 
-		    var healthBarValue = hBar.find(".ui-progressbar-value");
+    healthBarValue.css({
+        "background": '#86937C'
+    });
 
-		    healthBarValue.css({
-		        "background": '#86937C'
-		    });
-
-		}
+}
 /*
 		function manaBar(manaBarDiv) {
 
@@ -41,40 +42,40 @@
 
 		}
 */
-		function login() {
-		    $('#loginForm').on('submit', function (e) {
-		    	e.preventDefault();
+function login() {
+    $('#loginForm').on('submit', function (e) {
+    	e.preventDefault();
 
-		        var formObject = $(this);
-		        var formURL = formObject.attr("action");
+        var formObject = $(this);
+        var formURL = formObject.attr("action");
 
-		        $.ajax({
-		            url: formURL,
-		            type: "POST",
-		            data: formObject.serialize(),
-		            dataType: 'json',
-		            success: function (data) {
+        $.ajax({
+            url: formURL,
+            type: "POST",
+            data: formObject.serialize(),
+            dataType: 'json',
+            success: function (data) {
 
-		                $('#logout').show();
-		                $("#loginDiv").remove();
-		                $('#info').show();
-		                $('#cardinals').show();
-		                if (data.new) {
-		                    $('#setupDiv').show();
-		                } else {
-		                    statusUpdate();
-		                }
+                $('#logout').show();
+                $("#loginDiv").remove();
+                $('#info').show();
+                $('#cardinals').show();
+                if (data.new) {
+                    $('#setupDiv').show();
+                } else {
+                    statusUpdate();
+                }
 
-		            },
-		            error: function (jqXHR, textStatus, errorThrown) {
-		                $("#loginDiv").append('Incorrect Login Info' + errorThrown);
-		                console.log('Form Error' + jqXHR);
-		            }
-		        });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#loginDiv").append('Incorrect Login Info' + errorThrown);
+                console.log('Form Error' + jqXHR);
+            }
+        });
 
-		    });
+    });
 
-		}
+}
 
 		function setup() {
 		    $('#setupForm').on('submit', function (e) {
@@ -272,27 +273,24 @@
 		}
 */
 
-		function generate() {
+function generate() {
+    accordian('#accordion');
+    healthBar('#healthBar');
+   // manaBar('#manaBar');
+}
 
-		    $("#radio").buttonset();
+$(document).ready(function () {
 
-		    accordian('#accordion');
-		    healthBar('#healthBar');
-		   // manaBar('#manaBar');
-		}
+   // generate();
 
-		$(document).ready(function () {
+    statusUpdate();
 
-		    generate();
+    login();
 
-		    statusUpdate();
+    setup();
 
-		    login();
+    //move();
 
-		    setup();
+    //listen2();
 
-		    move();
-
-		    //listen2();
-
-		});
+});

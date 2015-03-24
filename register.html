@@ -8,8 +8,8 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Leaf Blade: Register</title>
-	<meta name="description" content="An interactive fiction choose-your-own-adventure story.">
+	<title>>PHP Register / Login: Register</title>
+	<meta name="description" content="Basic code to provide register and login functionality with PHP, JavaScript, and MySql">
 	<meta name="author" content="Stephen Burgess">
 
 	<!-- Mobile Specific Metas
@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/layout.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300,500|Zeyada|Josefin+Slab:400italic,600italic' rel='stylesheet'>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -31,83 +31,51 @@
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
 	<!-- jQuery
 	================================================== -->
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  	 <script src="http://malsup.github.com/jquery.form.js"></script> 
+	<script src="js/register.js"></script>
 
-	<script>
-
-
-		function Register () {
-			$('#signupForm').on('submit', function(e){
-				e.preventDefault();
-
-				var formObject = $(this);
-				var formURL = formObject.attr("action");
-
-				$.ajax({
-					url: formURL,
-					type: "POST",
-					data: formObject.serialize(),
-					success: function(id, textStatus, jqXHR)
-					{
-						window.location = "index.html";
-					},
-					error: function(jqXHR, textStatus, errorThrown)
-					{
-						console.log('Form Error');
-					}
-				});
-
-			});
-    	
-		}
-		</script>
-
-		</head>
+</head>
 <body>
-
-
-
 	<!-- Primary Page Layout
 	================================================== -->
-
 	<div class="container">
-		<div class="row"  id= "topbar"  style="padding:0; margin-top:0;">
-			<div class="eight columns alpha omega" id="logo">
-				<h3 style="margin:20px 0 0">Leaf Blade</h3>
-			</div>
-			<div class="eight columns alpha omega" id="version">
-				<h5 style="float:right; margin:30px 0 0;">Version 0.1</h5>
-			</div>
-		</div>
+		<header>
+			<hgroup>
+				<div class="eight columns">
+					<h3>PHP Register and Login</h3>
+				</div>
+				<div class="eight columns" id="version">
+					<h5>Version 0.2</h5>
+				</div>
+			</hgroup>
+		</header>
 		<hr />
-		<div class="twelve columns border" id="leftmodule">
+
+		<div class="twelve columns border" id="mainStory">
 			<div class="eight columns omega" id="mainImage" >
 				<a href="#"></a>
 			</div>
-			<div class="four columns alpha omega">
+
+			<aside class="four columns border" id="cardinals">
+			</aside>
+
+			<br class="clear" />
+
+			<header class="four columns">
 				<h3>Register</h3>
-			</div>
+			</header>
 
 			<br class="clear" /> 
 
-
-			<div class="eleven colums" id="signupDiv" style="padding:10px 0 0 20px">
+			<div class="twelve columns omega">
 				<form name="signup" id="signupForm" action="signup.php" method="post">
-					<label for="usernameRequest">Username: </label>
-					<input type="text" name="usernameRequest" placeholder="Username" required>
-					<label for="passwordRequest">Password: </label>
-					<input type="password" name="passwordRequest" placeholder="Password" required>
 					<label for="emailInput">Email: </label>
-					<input type="email" name="emailInput" placeholder="jjj@kkk.com">
+					<input type="email" name="emailInput" placeholder="jane@doecorporation.org">
+					<label for="passwordRequest">Password: </label>
+					<input type="password" name="passwordRequest" placeholder="Password!1234" required>
 					<input type="submit" name="register" value="Register">
 				</form>
 			</div>

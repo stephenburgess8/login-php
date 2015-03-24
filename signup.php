@@ -18,29 +18,26 @@ function createUser($sqli) {
     $id = 0;
 
      // FETCH DATA FROM INPUT FIELD
-    $user = mysqli_real_escape_string($sqli, $_POST['usernameRequest']);
-
-        // Two-fold password encryption hashing algorithm (hashing, hashed salt)
-    $tempPass = mysqli_real_escape_string($sqli, $_POST['passwordRequest']);
-    $salt = '1k7R!@bRUS}DW%Zy-tj{.o70WVm' . $user . 'FbjRQ#s+[@-~,!SaJ[`%51^$E{zZ>S}=?`Gq';
-    $pass = md5($tempPass.$salt);
-    $pass = sha1($pass);
-
     $email = mysqli_real_escape_string($sqli, $_POST['emailInput']);
-
+    $tempPass = mysqli_real_escape_string($sqli, $_POST['passwordInput']);
 
     // Check if all required fields are filled out.
     $validEntry = FALSE;
-    if (isset($user, $tempPass))
+    if (isset($email, $tempPass))
     {
-      // Query from database
-      $query = mysqli_query($sqli, "SELECT * FROM users WHERE handle='".$user."'");
+      // SHA512 with salt prevents against password cracking with rainbow tables
+      // Change this to your own unique salt
+      $salt = $email . 'FbjRQ#s+[@-~,!SaJ[`%51^$E{zZ>S}=?`Gq';
+      $pass = hash('sha512', $salt.$tempPass, false);
 
-       // Check if username already exists.
+      // Query from database
+      $query = mysqli_query($sqli, "SELECT * FROM users WHERE email='".$email."'");
+
+       // Check if email already exists.
       $checkUser= mysqli_num_rows($query);
       if($checkUser > 0)
       {
-      	$error = "Sorry, username already exists.";
+      	$error = "Sorry, that email has already been registered.";
       	echo $error;
       } 
       else
@@ -52,21 +49,19 @@ function createUser($sqli) {
     // Inserts new user info into new table row.
 		if($validEntry)
 		{
-	     mysqli_query($sqli, "INSERT INTO users (handle, pw, email) VALUES ('".$user."', '".$pass."', '".$email."')");
+	     mysqli_query($sqli, "INSERT INTO users (email, password) VALUES ('".$email."', '".$pass."')");
 
        // Fetching ID for new row.
-       $query = mysqli_query($sqli, "SELECT * FROM users WHERE handle='".$user."'");
+       $query = mysqli_query($sqli, "SELECT * FROM users WHERE email='".$email."'");
 	     while ($row = mysqli_fetch_array($query, MYSQLI_NUM))
 	     {
 		    $id = $row[0];
        }
-
 		}
 
   return $id ;
 
 }
-
 
 	$sql = getConnected();
 	$id = createUser($sql);
