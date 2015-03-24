@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Leaf Blade: Register</title>
+	<meta name="description" content="An interactive fiction choose-your-own-adventure story.">
+	<meta name="author" content="Stephen Burgess">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<!-- jQuery
+	================================================== -->
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  	 <script src="http://malsup.github.com/jquery.form.js"></script> 
+
+	<script>
+
+
+		function Register () {
+			$('#signupForm').on('submit', function(e){
+				e.preventDefault();
+
+				var formObject = $(this);
+				var formURL = formObject.attr("action");
+
+				$.ajax({
+					url: formURL,
+					type: "POST",
+					data: formObject.serialize(),
+					success: function(id, textStatus, jqXHR)
+					{
+						window.location = "index.html";
+					},
+					error: function(jqXHR, textStatus, errorThrown)
+					{
+						console.log('Form Error');
+					}
+				});
+
+			});
+    	
+		}
+		</script>
+
+		</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<div class="container">
+		<div class="row"  id= "topbar"  style="padding:0; margin-top:0;">
+			<div class="eight columns alpha omega" id="logo">
+				<h3 style="margin:20px 0 0">Leaf Blade</h3>
+			</div>
+			<div class="eight columns alpha omega" id="version">
+				<h5 style="float:right; margin:30px 0 0;">Version 0.1</h5>
+			</div>
+		</div>
+		<hr />
+		<div class="twelve columns border" id="leftmodule">
+			<div class="eight columns omega" id="mainImage" >
+				<a href="#"></a>
+			</div>
+			<div class="four columns alpha omega">
+				<h3>Register</h3>
+			</div>
+
+			<br class="clear" /> 
+
+
+			<div class="eleven colums" id="signupDiv" style="padding:10px 0 0 20px">
+				<form name="signup" id="signupForm" action="signup.php" method="post">
+					<label for="usernameRequest">Username: </label>
+					<input type="text" name="usernameRequest" placeholder="Username" required>
+					<label for="passwordRequest">Password: </label>
+					<input type="password" name="passwordRequest" placeholder="Password" required>
+					<label for="emailInput">Email: </label>
+					<input type="email" name="emailInput" placeholder="jjj@kkk.com">
+					<input type="submit" name="register" value="Register">
+				</form>
+			</div>
+		
+		</div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
+

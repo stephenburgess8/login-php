@@ -1,0 +1,140 @@
+body {
+	background-color: #FCFBFF;
+	color: #14171B;
+}
+
+h3, h5 {
+	margin: 20px 0 0;
+
+}
+
+h5 {
+	display: block;
+	float: right;
+}
+
+hr {
+	margin: 10px 10px 20px;
+}
+
+.icon {
+	top: 8px;
+	position: relative;
+	padding-right: 2px;
+}
+
+#topbar {
+	padding: 0;
+	margin-top: 0;
+}
+
+#mainStory {
+	background-color: #EEEEF5;
+}
+
+#mainImage {
+	background-color: #262626;
+	min-height: 200px;
+    background-image: url(../images/inn.jpg);
+    margin-left: auto;
+}
+
+#cardinals {
+	
+	padding: 10px;
+	background-color: #FCFBFF;
+	border: 1pt solid #CEDAF3;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.story {
+	width: 92%;
+	background-color: #F5FDF0;
+	margin: 10px auto;
+	padding: 10px;
+	display: none;
+	font-size: 1.5em;
+	line-height:170%;
+}
+
+.story p {
+	margin: 0;
+}
+
+.letter {
+	font-family: 'Zeyada', cursive;
+}
+
+#loginDiv {
+	margin: 10px;
+}
+
+#setupDiv {
+	padding: 10px;
+}
+
+#info {
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	background-color: #BFC9B8;
+}
+
+#stats {
+	list-style-type: none;
+	margin: 0 0 10px;
+	font-size: 1.3em;
+}
+
+#stats li {
+	margin: 0 0 0 20px;
+}
+
+#healthBar, #manaBar {
+	margin: 2px 20px 2px 0;
+}
+
+#bagBackground {
+	background-color: #EEEEF5;
+}
+
+
+#bagBackground ul {
+}
+
+a:link {
+	text-decoration: none;
+	font-weight: 500;
+	color: #EEEEF5;
+}
+
+a:hover {
+	color: #CEDAF3;
+}
+
+.header {
+
+}
+
+.border {
+	margin: 0;
+	padding: 0;
+  	-moz-box-sizing:    border-box;
+   	-webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+    border: 1pt solid black;
+}
+
+i {
+	font-family: 'Josefin Slab', serif;
+	font-style: italic;
+	font-weight: 600;
+	font-size: 1.2em;
+	color: #2e302b;
+}
+
+i a:link{
+	font-weight: 600;
+}

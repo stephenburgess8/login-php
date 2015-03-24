@@ -1,0 +1,260 @@
+<!--
+Content Creation, Design, and Development
+Stephen Burgess
+stephen.burgess@purchase.edu
+The Astre Blade
+2014
+-->
+
+<!DOCTYPE html> <!-- HTML5 -->
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+
+	<!-- Meta Data
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Astrablade (interactive fiction)</title>
+	<meta name="description" content="An interactive fiction choose-your-own-adventure story.">
+	<meta name="author" content="Stephen Burgess">
+
+	<!-- Mobile Specific Meta
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+  	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300,500|Zeyada|Josefin+Slab:400italic,600italic' rel='stylesheet'>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<!-- jQuery
+	================================================== -->
+
+
+	  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+	<script src="js/main.js"></script>
+</head>
+
+<body>
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<div class="container">
+
+		<header class="row" id="topbar" >
+			<hgroup>
+				<div class="eight columns alpha omega" id="logo">
+					<h3>The Astre Blade</h3>
+				</div>
+				<div class="eight columns alpha omega" id="version">
+					
+					<h5>Version 0.4</h5>
+				</div>
+			</hgroup>
+
+			<a href="logout.php" id="logout" style="display:none; float:right; color: #CCF;">Log Out</a>
+		</header>
+
+		<hr />
+
+		<div class="twelve columns border" id="mainStory">
+			<div class="eight columns omega" id="mainImage" >
+				<a href="#"></a>
+			</div>
+
+			<!-- class="eight columns alpha"-->
+			<aside class="four columns border" id="cardinals">
+					Location: <span id="location">Inn Room</span>
+			</aside>
+			<br class="clear" />
+			
+			<article class="story" id="state00" title='Inn Room'>
+				<p>You wake up in a small room in an inn. The morning light coming through the window just reached your pillow. The fire went out during the night and now the room is cold. <a class="move" id="s000" href="#">Examine the dresser.</a><br /><a class="move" id="s001" href="#">Examine the bedside table.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
+			</article>
+
+			<article class="story" id="state000" title='Inn Room'>
+				<p>You open the drawers of the dresser. You find the ring you'd taken off before you went to sleep. <a class="get" id="o00" href="#">Pick it up.</a> Otherwise there are a couple of postcards. One has a photo of the town, with the name 'Narriweather'. Hmm, that must be the name of this place. The other is an advertisement for a general shop, 'Yea Olde Shoppe'. <br /><a class="move" id="s002" href="#">Examine the bedside table.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
+			</article>
+
+			<article class="story" id="state001" title='Inn Room'>
+				<p>Sitting on the bedside table is an oil lamp and an old metal letter opener provided by the inn for customers. In addition there is the letter from your family.<br /> <a class="story" id="s002" href="#">Read the letter.</a> <br /><a class="get" id="o01" href="#">Take the lamp.</a> <br /><a class="get" id="o02" href="#">Take the letter opener.</a> <br /><a class="move" id="s002" href="#">Examine the dresser.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
+			</article>
+
+			<article class="story" id="state002" title='Inn Room'>
+				<p>Sitting on the bedside table is an oil lamp and an old metal letter opener provided by the inn for customers. In addition there is the letter from your family.<br /> <a class="story" id="s002" href="#">Read the letter.</a> <br /><a class="get" id="o01" href="#">Take the lamp.</a> <br /><a class="get" id="o02" href="#">Take the letter opener.</a> <br /><a class="move" id="s002" href="#">Examine the dresser.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
+			</article>
+
+			<article class="story" id="state01" title='Inn Dining Room'>
+				<p>You are in the main dining room of an inn. Despite the early hour there are heavy curtains over the window. The room is lit by the fire and lamps. There is a woman sitting near the fire. You cannot see her face from here. <a class="move" id="s02" href="#">Talk to the woman.</a> A few tables away is a young man eating breakfast. <a class="move" id="s04" href="#">Talk to the young man.</a><br /> <a class="move" id="s03" href="#">Talk to the Innkeeper.</a></p>
+			</article>
+
+			<article class="story" id="state02" title='Mysterious  Woman'>
+				<p>You move over to her table.  Her hooded cape shrouds most of her face and it is difficult to tell her age. <i>Excuse me, I'm new to this town. Can you tell me a little about it?</i> You cannot read her expression, but she answers <i>Yes traveller, this town will be called Nerriweather. It escapes most of the turmoil that has plagued this realm. In town you have found a general store, a blacksmith, and the homes of those who live here. While you were here, will you run an errand for me?</i> You find the way she speaks very strange, but she manages to come off as serene and confident. <br /><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s02c" href="#">Chat with the woman.</a><br /> <a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
+			</article>
+
+			<article class="story" id="state02c" title='Mysterious  Woman'>
+				<p>When you look at her face, her eyes seem to change color. <i>It was time for your rise. Prepare yourself, wanderer, the road ahead was rough.</i> <br /><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
+			</article>
+
+			<article class="story" id="state02q" title='Mysterious  Woman'>
+				<p>You move over to her table.  Her hooded cape shrouds most of her face and it is difficult to tell her age. <i>Excuse me, I'm new to this town. Can you tell me a little about it?</i> You cannot read her expression, but she answers <i>Yes traveller, this town will be called Nerriweather. It escapes most of the turmoil that has plagued this realm. In town you have found a general store, a blacksmith, and the homes of those who live here. While you were here, will you run an errand for me?</i> You find the way she speaks very strange, but she manages to come off as serene and confident. <br/><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s02c" href="#">Chat with the woman.</a> <br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
+			</article>
+
+			<article class="story" id="state03" title='Innkeeper'>
+				<p>The innkeeper is washing dishes behind the bar. He dries his hands as you approach. <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
+				</i> Embarrassed, though you are unsure why, you respond. <br /><i><a class="move" id="s03q" href="#">I'd be glad to help you out.</a></i><br />
+				<a class="move" id="s02" href="#">Go over to the woman.</a><br />
+				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
+				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
+				</p>
+			</article>
+
+			<article class="story" id="state03q" title='Innkeeper'>
+				<p>Reaching below the counter, the innkeeper brings out a  <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
+				</i> Embarrassed, though you are unsure why, you respond. <br /><i><a class="move" id="s03q" href="#">I'd be glad to help you out.</a></i><br />
+				<a class="move" id="s02" href="#">Go over to the woman.</a><br />
+				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
+				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
+				</p>
+			</article>
+
+			<article class="story" id="state04" title='Young Man'>
+				<p>You approach the young man's table. He is unusually tall and thin.  At the same time he looks up at you, the lamp flickers wildly before settling down again. You ask him <i>Could you tell me a little about this town?</i> He looks startled. <i>What? What did you say? I... I am not from this town, I couldn't tell you much.</i>
+					<br /><a class="move" id="s04c" href="#">Chat with this strange fellow.</a>
+					<br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a>
+					<br /><a class="move" id="s02" href="#">Talk to the woman.</a>
+				</p>
+			</article>
+
+			<article class="story" id="state04c" title='Young Man'>
+				<p><i>OK. My name is <span class="name">Hero</span>. </i>You approach the young man's table. He is unusually tall and thin.  At the same time he looks up at you, the lamp flickers wildly before settling down again. You ask him <i>Could you tell me a little about this town?</i> He looks startled. <i>What? What did you say? I... I am not from this town, I couldn't tell you much.</i> <br /><a class="move" id="s04c" href="#">Chat with this strange fellow.</a>   <a class="move" id="s03" href="#">Talk to the Innkeeper.</a>   <a class="move" id="s02" href="#">Talk to the woman.</a></p>
+			</article>
+
+			<article class="story" id="state05" title='Nerriweather Main Raoad'>
+				<p>Reaching below the counter, the innkeeper brings out a  <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
+				</i> Embarrassed, though you are unsure why, you respond. <br />
+				<a class="move" id="s01" href="#">The Nerriweather Inn</a><br />
+				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
+				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
+				</p>
+			</article>
+
+			<!-- Login Form -->
+
+			<div class="eleven columns" id="loginDiv">
+				<form name="login" id="loginForm" action="login.php" method="post">
+					<label for="usernameInput">Username: </label>
+					<input type="text" name="usernameInput" id="usernameInput" placeholder="Username" autofocus required>
+					<label for="passwordInput">Password: </label>
+					<input type="password" name="passwordInput" placeholder="Password" required>
+					<input type="submit" name="loginSubmit" value="Log In">
+				</form>
+				<a href="register.html" id="register">Register</a>
+			</div>
+
+
+			<!-- Setup Form -->
+
+			<div class="eleven columns" id="setupDiv" style="display:none;">
+				<!-- setup.php is to be called at form submit -->
+				<form name="setup" id="setupForm" action="setup.php" method="post">
+					<label for="heronameInput">What should I call you?</label>
+					<input type="text" name="heronameInput" id="heronameInput" placeholder="Your name" required>
+					<div id="radio">
+						<h5>Choose your class</h5>
+					    <input type="radio" id="knight" name="class" value="knight">
+					    <label for="knight">Knight</label>
+					    <input type="radio" id="mage" name="class" checked="checked" value="mage">
+					    <label for="mage">Mage</label>
+					    <input type="radio" id="rogue" name="class">
+					    <label for="rogue" value="rogue">Rogue</label>
+					 </div>
+					<input type="hidden" id="checked_radio" name="checked_radio" value="" />
+					<br />
+					<input type="submit" name="heroNameSubmit" value="Next">
+				</form>
+			</div>
+		</div> <!-- End Main -->
+ 
+
+		<div class="four columns border" id="info" style="display:none;">
+			<h4>Character: <span id="hero">Our Hero</span></h4>
+			<ul id="stats">
+				<li>Level: <span id="level">1</span></li>
+				<li>Money: 
+					<span id="money">200</span>
+					<span style="top:-2px; position:relative;">ø</span>
+				</li>
+				<li>
+					HP:
+					<span id="hp">8</span>
+					/
+					<span id="maxHP">12</span> 
+					<div id="healthBar"></div>
+				</li>
+
+				<li>MP: 
+					<span id="mp">2</span>
+					/
+					<span id="maxMP">10</span>
+					<div id="manaBar"></div>
+				</li>
+			</ul>
+			<hr />
+
+			<div id="accordion">
+			  <h3><span id="bag">Small Bag</span></h3>
+			  <div id="bagBackground">
+				<ul>
+				  <li id="bag1">
+				  	<a href="#" class="missive" id="aLetter">
+				  		<img src="icons/letter.jpg" class="icon" alt="letter"/></a>
+				  	 <a href="#" class="missive" id="aLetter">A letter</a>
+				  </li>
+				  <li id="bag2">
+				  	<a href="#" class="missive" id="roomKey">
+				  		<img src="icons/roomkey.jpg" class="icon" alt="key"/></a> 
+				  	 <a href="#" class="missive" id="roomKey">Room Key</a>
+				  </li>
+				  <li id="bag3">
+				  	<a href="#" class="object" id="speed">
+				  		<img src="icons/haste.jpg" class="icon" alt="haste"/></a> 
+				  	 <a href="#" class="object" id="speed">Hasten Spell</a> 
+				   </li>
+				</ul>
+			  </div>
+			</div>
+			
+
+		</div> <!-- End info -->
+		
+
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
