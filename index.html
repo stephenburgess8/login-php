@@ -40,15 +40,10 @@ PHP Sign-up/Login
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
 	<!-- jQuery
 	================================================== -->
-		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-		
-	  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="js/custom-jquery.min.js"></script>
 		<script src="js/main.js"></script>
 </head>
 
@@ -82,84 +77,12 @@ PHP Sign-up/Login
 			</aside>
 			<br class="clear" />
 			
-
-			<article class="story" id="state00" title='Inn Room'>
-				<p>You wake up in a small room in an inn. The morning light coming through the window just reached your pillow. The fire went out during the night and now the room is cold. <a class="move" id="s000" href="#">Examine the dresser.</a><br /><a class="move" id="s001" href="#">Examine the bedside table.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
-			</article>
-
-			<article class="story" id="state000" title='Inn Room'>
-				<p>You open the drawers of the dresser. You find the ring you'd taken off before you went to sleep. <a class="get" id="o00" href="#">Pick it up.</a> Otherwise there are a couple of postcards. One has a photo of the town, with the name 'Narriweather'. Hmm, that must be the name of this place. The other is an advertisement for a general shop, 'Yea Olde Shoppe'. <br /><a class="move" id="s002" href="#">Examine the bedside table.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
-			</article>
-
-			<article class="story" id="state001" title='Inn Room'>
-				<p>Sitting on the bedside table is an oil lamp and an old metal letter opener provided by the inn for customers. In addition there is the letter from your family.<br /> <a class="story" id="s002" href="#">Read the letter.</a> <br /><a class="get" id="o01" href="#">Take the lamp.</a> <br /><a class="get" id="o02" href="#">Take the letter opener.</a> <br /><a class="move" id="s002" href="#">Examine the dresser.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
-			</article>
-
-			<article class="story" id="state002" title='Inn Room'>
-				<p>Sitting on the bedside table is an oil lamp and an old metal letter opener provided by the inn for customers. In addition there is the letter from your family.<br /> <a class="story" id="s002" href="#">Read the letter.</a> <br /><a class="get" id="o01" href="#">Take the lamp.</a> <br /><a class="get" id="o02" href="#">Take the letter opener.</a> <br /><a class="move" id="s002" href="#">Examine the dresser.</a><br /><a class="move" id="s01" href="#">Go to the lobby?</a></h5>
-			</article>
-
-			<article class="story" id="state01" title='Inn Dining Room'>
-				<p>You are in the main dining room of an inn. Despite the early hour there are heavy curtains over the window. The room is lit by the fire and lamps. There is a woman sitting near the fire. You cannot see her face from here. <a class="move" id="s02" href="#">Talk to the woman.</a> A few tables away is a young man eating breakfast. <a class="move" id="s04" href="#">Talk to the young man.</a><br /> <a class="move" id="s03" href="#">Talk to the Innkeeper.</a></p>
-			</article>
-
-			<article class="story" id="state02" title='Mysterious  Woman'>
-				<p>You move over to her table.  Her hooded cape shrouds most of her face and it is difficult to tell her age. <i>Excuse me, I'm new to this town. Can you tell me a little about it?</i> You cannot read her expression, but she answers <i>Yes traveller, this town will be called Nerriweather. It escapes most of the turmoil that has plagued this realm. In town you have found a general store, a blacksmith, and the homes of those who live here. While you were here, will you run an errand for me?</i> You find the way she speaks very strange, but she manages to come off as serene and confident. <br /><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s02c" href="#">Chat with the woman.</a><br /> <a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
-			</article>
-
-			<article class="story" id="state02c" title='Mysterious  Woman'>
-				<p>When you look at her face, her eyes seem to change color. <i>It was time for your rise. Prepare yourself, wanderer, the road ahead was rough.</i> <br /><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
-			</article>
-
-			<article class="story" id="state02q" title='Mysterious  Woman'>
-				<p>You move over to her table.  Her hooded cape shrouds most of her face and it is difficult to tell her age. <i>Excuse me, I'm new to this town. Can you tell me a little about it?</i> You cannot read her expression, but she answers <i>Yes traveller, this town will be called Nerriweather. It escapes most of the turmoil that has plagued this realm. In town you have found a general store, a blacksmith, and the homes of those who live here. While you were here, will you run an errand for me?</i> You find the way she speaks very strange, but she manages to come off as serene and confident. <br/><i><a class="move" id="s02q" href="#">How can I help?</a></i> <br /><a class="move" id="s02c" href="#">Chat with the woman.</a> <br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a> <br /><a class="move" id="s04" href="#">Talk to the young man.</a></p>
-			</article>
-
-			<article class="story" id="state03" title='Innkeeper'>
-				<p>The innkeeper is washing dishes behind the bar. He dries his hands as you approach. <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
-				</i> Embarrassed, though you are unsure why, you respond. <br /><i><a class="move" id="s03q" href="#">I'd be glad to help you out.</a></i><br />
-				<a class="move" id="s02" href="#">Go over to the woman.</a><br />
-				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
-				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
-				</p>
-			</article>
-
-			<article class="story" id="state03q" title='Innkeeper'>
-				<p>Reaching below the counter, the innkeeper brings out a  <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
-				</i> Embarrassed, though you are unsure why, you respond. <br /><i><a class="move" id="s03q" href="#">I'd be glad to help you out.</a></i><br />
-				<a class="move" id="s02" href="#">Go over to the woman.</a><br />
-				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
-				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
-				</p>
-			</article>
-
-			<article class="story" id="state04" title='Young Man'>
-				<p>You approach the young man's table. He is unusually tall and thin.  At the same time he looks up at you, the lamp flickers wildly before settling down again. You ask him <i>Could you tell me a little about this town?</i> He looks startled. <i>What? What did you say? I... I am not from this town, I couldn't tell you much.</i>
-					<br /><a class="move" id="s04c" href="#">Chat with this strange fellow.</a>
-					<br /><a class="move" id="s03" href="#">Talk to the Innkeeper.</a>
-					<br /><a class="move" id="s02" href="#">Talk to the woman.</a>
-				</p>
-			</article>
-
-			<article class="story" id="state04c" title='Young Man'>
-				<p><i>OK. My name is <span class="name">Hero</span>. </i>You approach the young man's table. He is unusually tall and thin.  At the same time he looks up at you, the lamp flickers wildly before settling down again. You ask him <i>Could you tell me a little about this town?</i> He looks startled. <i>What? What did you say? I... I am not from this town, I couldn't tell you much.</i> <br /><a class="move" id="s04c" href="#">Chat with this strange fellow.</a>   <a class="move" id="s03" href="#">Talk to the Innkeeper.</a>   <a class="move" id="s02" href="#">Talk to the woman.</a></p>
-			</article>
-
-			<article class="story" id="state05" title='Nerriweather Main Raoad'>
-				<p>Reaching below the counter, the innkeeper brings out a  <i>I trust everything was up to your standards sir. We don't get too many city folk out here so you'll excuse any lack of amenities. If it's not too much trouble, do you think you can spare a moment of your time to help a lowly innkeeper?<br />
-				</i> Embarrassed, though you are unsure why, you respond. <br />
-				<a class="move" id="s01" href="#">The Nerriweather Inn</a><br />
-				<a class="move" id="s04" href="#">Talk to the young man.</a><br />
-				<a class="move" id="s05" href="#">Leave and exit to the street.</a><br />
-				</p>
-			</article>
-
 			<!-- Login Form -->
 
 			<div class="twelve columns alpha omega" id="loginDiv">
 				<form name="login" id="loginForm" action="login.php" method="post">
 					<label for="emailInput">Email: </label>
-					<input type="email" name="emailInput" id="emailInput" placeholder="Jane@doefoundation.org" autofocus required>
+					<input type="email" name="emailInput" placeholder="Jane@doefoundation.org" autofocus required>
 					<label for="passwordInput">Password: </label>
 					<input type="password" name="passwordInput" placeholder="Password!1234" required>
 					<input type="submit" name="loginSubmit" value="Log In">
@@ -170,7 +93,7 @@ PHP Sign-up/Login
 
 			<!-- Setup Form -->
 
-			<div class="eleven columns" id="setupDiv" style="display:none;">
+			<div class="twelve columns alpha omega" id="setupDiv" style="display:none;">
 				<!-- setup.php is to be called at form submit -->
 				<form name="setup" id="setupForm" action="setup.php" method="post">
 					<label for="heronameInput">What should I call you?</label>

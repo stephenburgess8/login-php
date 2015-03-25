@@ -1,6 +1,4 @@
 <?php 
-
-
 // Connects to your Database 
 function getConnected()
 {
@@ -31,5 +29,3 @@ function save()
 	mysqli_query($sqli, "UPDATE inventory SET stuff='".$_SESSION['inventory']."' WHERE id='".$_SESSION['id']."'");
 	*/
 }	
-
- ?>

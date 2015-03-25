@@ -43,40 +43,44 @@ function healthBar(healthBarDiv) {
 		}
 */
 function login() {
-    $('#loginForm').on('submit', function (e) {
+    $('#loginForm').on('submit', function(e) {
     	e.preventDefault();
 
         var formObject = $(this);
         var formURL = formObject.attr("action");
-
         $.ajax({
             url: formURL,
             type: "POST",
             data: formObject.serialize(),
             dataType: 'json',
             success: function (data) {
-
-                $('#logout').show();
-                $("#loginDiv").remove();
-                $('#info').show();
-                $('#cardinals').show();
                 if (data.new) {
-                    $('#setupDiv').show();
+                	console.log(document.getElementById("loginDiv"));
+                	// Hide the Login div
+	                document.getElementById("loginDiv").style.display = "none";
+	            	// Now that the player is logged in, show the logout link.
+	                document.getElementById('logout').style.display = "block";
+	                // Hide the Login div
+	                document.getElementById("loginDiv").style.display = "none";
+	                // Show the div containing information about the user
+	                document.getElementById('info').style.display = "block";
+	                document.getElementById('cardinals').style.display = "block";
+                    document.getElementById('setupDiv').style.display = "block";
                 } else {
                     statusUpdate();
                 }
 
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#loginDiv").append('Incorrect Login Info' + errorThrown);
-                console.log('Form Error' + jqXHR);
+            error: function (data, id, jqXHR, textStatus, errorThrown) {
+                $("#loginDiv").append('Incorrect Login Info: ' + textStatus + " / " + id);
+                console.log("Response Text: " + data.responseText);
             }
         });
 
     });
 
 }
-
+/*
 		function setup() {
 		    $('#setupForm').on('submit', function (e) {
 		        //e.preventDefault();
@@ -136,7 +140,7 @@ function login() {
 							    $("#b3").find("a").text(data.inventory.0.stuff.0.name);
 							    $('#b1').find('.filledSlots').text(data.inventory.0.stuff.0.filledSlots);
 							    $('#b1').find('.slots').text(data.inventory.0.stuff.0.slots);
-		*/
+		*//*
 		                $("#setupDiv").remove();
 		                $("#state" + data.user.state).show();
 		            },
@@ -148,20 +152,16 @@ function login() {
 		    });
 
 		}
-
+*/
 		function statusUpdate() {
 		    $.ajax({
 		        url: 'checkStatus.php',
 		        dataType: 'json',
 		        success: function (data) {
-		        	console.log(data);
-
+		        	//console.log(data);
 		        	// If player has not gone through setup
 		        	if (data.user != '0') {
-
-		        		// Now that the player is logged in, show the logout link.
-		                $('#logout').show();
-
+/*
 		                // Show Info Sidebar
 		                $('#info').show();
 		                
@@ -173,7 +173,6 @@ function login() {
 
 		                // If the user has been through setup
 		                if (data.user != -1) {
-
 		                	// Update info bar
 		                    $("#hero").html(data.user.heroName);
 		                    $("#hp").html(data.user.hp);
@@ -203,94 +202,25 @@ function login() {
 /*
 		                    $('#manaBar').progressbar({
 		                        value: (data.user.mp / data.user.maxmp) * 100
-		                    }); */
+		                    }); 
 		                } else {
 		                    $('#setupDiv').show();
-		                }
-
+		                } 
+		                */
 		            }
 
 		        },
-		        error: function (jqXHR, textStatus, errorThrown) {
+		        error: function(jqXHR, textStatus, errorThrown) {
 		        	console.log ('wtf?');
 		        }
 		    });
 		}
 
-		function move() {
-		    $('.move').on('click', function (e) {
-		      e.preventDefault();
-
-		        var linkObject = $(this);
-		        var linkTarget = linkObject.attr("id").substr(1);
-
-		        $.ajax({
-		            url: 'move.php',
-		            type: "POST",
-		            data: {
-		                target: linkTarget
-		            },
-		            success: function () {
-
-		                statusUpdate();
-
-		            },
-		            error: function (jqXHR, textStatus, errorThrown) {
-		                console.log(errorThrown);
-		            }
-		        });
-
-		    });
-		}
-/*
-		function listen2() {
-
-		    $('.object').on('click', function (e){
-				e.preventDefault();
-
-		    	var objectObject = $(this);
-		        var objectType = objectObject.attr("id");
-
-		        $.ajax({
-		            url: 'use.php',
-		            type: "POST",
-		            data: {
-		            	type: objectType
-		            },
-		            success: function (data) {
-
-		            	console.log();
-		                statusUpdate();
-
-		            },
-		            error: function (jqXHR, textStatus, errorThrown) {
-		                console.log(errorThrown);
-		            }
-		        });
-
-		    })
-
-		}
-*/
-
-function generate() {
-    accordian('#accordion');
-    healthBar('#healthBar');
-   // manaBar('#manaBar');
-}
-
-$(document).ready(function () {
-
-   // generate();
+document.addEventListener("DOMContentLoaded", function(event) { 
 
     statusUpdate();
 
     login();
 
-    setup();
-
-    //move();
-
-    //listen2();
 
 });

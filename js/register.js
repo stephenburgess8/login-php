@@ -9,15 +9,14 @@ function register () {
 			url: formURL,
 			type: "POST",
 			data: formObject.serialize(),
-			success: function(id, textStatus, jqXHR)
+			success: function(data, id, textStatus, jqXHR)
 			{
-				window.location = "index.html";
+				console.log("Hi " + data);
 			},
 			error: function(jqXHR, textStatus, errorThrown)
 			{
 				console.log('Form Error');
 			}
 		});
-
 	});
 }
